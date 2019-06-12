@@ -5,6 +5,43 @@
     <title>Lista de Compras</title>
 </head>
 <body>
+    <h1>Lista de Compras</h1>
+    <form name="compras">
+        Item: <input type="text" name="nome">
+        Quantidade: <input type="number" name="quant">
+        <input type="submit" value="Adicionar">
+    </form>
     
+    <ul></ul>
+
+    <button id="limpar">Limpar</button>
+
+    <script>
+        var form = document.forms.compras.addEventListener("submit",processaEnvio)
+        var lista = document.getElementsByTagName("ul")[0]
+        var limpar = document.getElementById("limpar");
+
+        function processaEnvio(e){
+            e.preventDefault();
+            
+            var nome = document.forms.compras.nome.value
+            var quantidade = Number(document.forms.compras.quant.value)
+            if(nome!="" && quantidade!=""){
+                var novoProduto = {"Nome": nome, "Quantidade": quantidade}
+           
+                var novoLi = document.createElement("li")
+                novoLi.textContent = "Item:"+nome+"  Quantidade:"+quantidade
+                lista.appendChild(novoLi)
+
+                document.forms.compras.reset();
+                document.forms.compras.nome.focus();
+            }
+        }
+
+        limpar.addEventListener("click",function(){
+            lista.innerHTML="";
+        })
+    
+    </script>
 </body>
 </html>
