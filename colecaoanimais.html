@@ -121,10 +121,10 @@
         vetorDeDados.push({nome:nome,altura:altura,peso:peso,velocidade:velocidade,idadeMax:idadeMax});
         var alto=0,pesado=0,veloz=0,longevo=0;
         for (var i = 0; i < vetorDeDados.length; i++) {
-            mAltura += vetorDeDados[i].altura;
-            mPeso += vetorDeDados[i].peso;
-            mVelocidade += vetorDeDados[i].velocidade;
-            mIdademMax += vetorDeDados[i].idadeMax;
+            mAltura += Number(vetorDeDados[i].altura);
+            mPeso += Number(vetorDeDados[i].peso);
+            mVelocidade += Number(vetorDeDados[i].velocidade);
+            mIdademMax += Number(vetorDeDados[i].idadeMax);
 
             if(vetorDeDados[i].altura>vetorDeDados[alto].altura) alto=i;
             if(vetorDeDados[i].peso>vetorDeDados[pesado].peso) pesado=i;
@@ -146,6 +146,17 @@
 
         
         //--------calculo da media e ranking
+
+        //Animais acima da media
+        var mediaDoPeso = mPeso/vetorDeDados.length;
+        var nAnimais=0;
+        var sAcima = document.getElementById("acima");
+        for (var i = 0; i < vetorDeDados.length; i++) {
+            if(vetorDeDados[i].peso>mediaDoPeso) nAnimais++;
+        }
+        sAcima.innerText = nAnimais;
+        //--------Animais acima da media
+
     }
 
 </script>
