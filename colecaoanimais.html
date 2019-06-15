@@ -3,33 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Coleção de animas</title>
+    
+    <style>
+        form>table{
+            padding: 0.5em;
+            border: 0.1em solid;
+            margin: 0.5em;
+        }
+
+        .formulario input{
+            width: 100%;
+
+        }
+
+        .botao{
+            width: 100%;
+        }
+        .animais{
+            margin-left: 0.5em;
+            width: 299px;
+            border-collapse: collapse;
+        }
+        .animais td{
+            border: 0.1em dashed;
+            text-align: center;
+            padding: 0.2em;
+        }
+
+        thead,tfoot{
+            font-weight: bold;
+        }
+        
+    </style>
+
 </head>
 <body>
     <h1>Animais - Características e Curiosidades</h1>
     <form name="formulario">
         <table>
             <tr>
-                <td>Animal: <input type="text" name="nome"></td>
+                <td>Animal:</td> 
+                <td><input type="text" name="nome"></td>
             </tr>
             <tr>
-                <td>Altura: <input type="number" step="any" min="0" name="altura"></td>
+                <td>Altura: </td>
+                <td><input type="number" step="any" min="0" name="altura"></td>
             </tr>
             <tr>
-                <td>Peso: <input type="number" step="any" min="0" name="peso"></td>
+                <td>Peso: </td>
+                <td><input type="number" step="any" min="0" name="peso"></td>
             </tr>
             <tr>
-                <td>Velocidade: <input type="number" step="any" min="0" name="velocidade"></td>
+                <td>Velocidade: </td>
+                <td><input type="number" step="any" min="0" name="velocidade"></td>
             </tr>
             <tr>
-                <td>Idade Máxima: <input type="number" step="any" min="0" name="idadeMax"></td>
+                <td>Idade Máxima: </td>
+                <td><input type="number" step="any" min="0" name="idadeMax"></td>
             </tr>
             <tr>
-                <td><input type="submit" value="Inserir"></td>
+                <td colspan="2"><input class="botao" type="submit" value="Inserir"></td>
             </tr>
         </table>
     </form>
     
-    <table> 
+    <table class="animais"> 
         <thead>
             <tr>
                 <td>Animal</td>
@@ -42,7 +80,7 @@
         <tbody></tbody>
         <tfoot>
             <tr>
-                <td>Médias:</td>
+                <td>Média:</td>
                 <td id="mAltura"></td>
                 <td id="mPeso"></td>
                 <td id="mVelocidade"></td>
@@ -147,7 +185,7 @@
         
         //--------calculo da media e ranking
 
-        //Animais acima da media
+        //Animais com peso acima da media
         var mediaDoPeso = mPeso/vetorDeDados.length;
         var nAnimais=0;
         var sAcima = document.getElementById("acima");
@@ -155,7 +193,7 @@
             if(vetorDeDados[i].peso>mediaDoPeso) nAnimais++;
         }
         sAcima.innerText = nAnimais;
-        //--------Animais acima da media
+        //--------Animais com peso acima da media
 
     }
 
