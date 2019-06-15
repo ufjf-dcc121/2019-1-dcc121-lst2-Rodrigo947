@@ -49,14 +49,35 @@
             var idade = formulario.idade.value;
 
             if(nome!="" && idade!="" && idade>0){
-                if(idade>17) adultos.push({name:nome},{age:idade})
-                else estudantes.push({name:nome},{age:idade})
+                if(idade>17) adultos.push({name:nome,age:idade})
+                else estudantes.push({name:nome,age:idade})
 
                 formulario.reset()
                 formulario.nome.focus()
             }
-            
+            atualizarListas();
+        }
 
+        function atualizarListas(){
+           //Adultos
+           listAdultos.innerHTML=""
+           for (var i = 0; i < adultos.length; i++) {
+               var novoLi = document.createElement("li")
+                                           
+               novoLi.textContent = adultos[i].name+" - "+adultos[i].age
+              
+               listAdultos.appendChild(novoLi)
+           }
+           //Estudantes
+           listEstudantes.innerHTML=""
+           for (var i = 0; i < estudantes.length; i++) {
+               var novoLi = document.createElement("li")
+               
+               novoLi.textContent = estudantes[i].name+" - "+estudantes[i].age
+               
+               listEstudantes.appendChild(novoLi)
+            
+            }
         }
 
     </script>
