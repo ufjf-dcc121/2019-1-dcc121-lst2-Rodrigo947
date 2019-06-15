@@ -66,13 +66,7 @@
             
         
         function desempilhar(){
-            var pilhaAux=[]
-            
-            for (var i = 0; i < pilha.length-1; i++) {
-                pilhaAux[i]=pilha[i]
-            }
-
-            pilha=pilhaAux
+            pilha.splice(pilha.length-1,1)
             atualizarPilha()
         }
 
