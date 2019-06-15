@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <title>Pilha</title>
     <style>
-        td{
+        table{
+            margin: 0.5em;
             text-align: center;
-            border-style: solid;
-            border-bottom: 0.1em;
+            border-collapse: collapse;
+
+        }
+        tbody>tr>td{
+            border: 0.5px;
+            border-style: dashed;
             border-color: #3f51b5;
         }
+        #desempilhar{
+            width: 100%;
+        }
+
     </style>
 
 </head>
@@ -18,12 +27,22 @@
     Entrada: <input type="number" id="entrada">
     
     <button id="empilhar">Empilhar</button>
-    <p>Representação da Pilha</p>
+    
     <table>
-      
+        <thead>
+            <tr>
+                <td>Representação da Pilha</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+            <tr>
+                <td><button id="desempilhar">Desempilhar</button></td>
+            </tr>
+        </tfoot>
     </table>
     
-    <button id="desempilhar">Desempilhar</button>
+    
 
     <script>
         var pilha=[]
@@ -32,14 +51,14 @@
         var campoEntrada = document.getElementById("entrada")
         var btnEmpilhar = document.getElementById("empilhar")
         var btnDesempilhar = document.getElementById("desempilhar")
-        var tabela = document.getElementsByTagName("table")[0]
+        var tabela = document.getElementsByTagName("tbody")[0]
 
         //Eventos dos botoes
         btnEmpilhar.addEventListener("click",empilhar)
         btnDesempilhar.addEventListener("click",desempilhar)
 
         function empilhar(){
-            if(campoEntrada!=""){
+            if(campoEntrada.value!=""){
                 pilha.push(campoEntrada.value)
                 atualizarPilha()
             } 
