@@ -2,11 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Coleção de animas</title>
 </head>
 <body>
+    <h1>Animais - Características e Curiosidades</h1>
+    <form name="formulario">
+        <table>
+            <tr>
+                <td>Animal: <input type="text"></td>
+            </tr>
+            <tr>
+                <td>Altura: <input type="number" min="0"></td>
+            </tr>
+            <tr>
+                <td>Peso: <input type="number" min="0"></td>
+            </tr>
+            <tr>
+                <td>Velocidade: <input type="number" min="0"></td>
+            </tr>
+            <tr>
+                <td>Idade Máxima: <input type="number" min="0"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Inserir"></td>
+            </tr>
+        </table>
+    </form>
     
+    <table> 
+        <thead>
+            <tr>
+                <td>Animal</td>
+                <td>Altura</td>
+                <td>Peso</td>
+                <td>Velocidade</td>
+                <td>Idade Máxima</td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+                <td>Médias:</td>
+                <td id="altura"></td>
+                <td id="peso"></td>
+                <td id="velocidade"></td>
+                <td id="idademMax"></td>
+        </tfoot>
+    </table>
+
+    <ol type="i">
+        <li>Mais alto: <span id="alto"></span></li>
+        <li>Mais pesado: <span id="pesado"></span></li>
+        <li>Mais veloz: <span id="veloz"></span></li>
+        <li>Mais longevo: <span id="longevo"></span></li>   
+    </ol>
+
+    <p>Animas acima da média do peso: <span id="acima"></span></p>
 </body>
 </html>
