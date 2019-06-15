@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <title>Excursão</title>
     <style>
-        
-        
+        input.dados{
+            width: 100%;
+        }
+        .botoes{
+            text-align:right;
+        }     
     </style>
 </head>
 <body>
@@ -21,9 +25,9 @@
                 <td><input class="dados" type="number" name="idade" placeholder="0" min="0" required></td>
             </tr>
             <tr>
-                <td colspan="2">
-                    <input class="botoes" type="button" value="Excluir" name="excluir" >
-                    <input class="botoes" type="submit" value="Inscrever">
+                <td class="botoes"  colspan="2">
+                    <input type="button" value="Excluir" name="excluir" >
+                    <input type="submit" value="Inscrever" name="inscrever" >
                 </td>
             </tr>
         </table>    
@@ -42,6 +46,7 @@
         var listaAdultos = document.getElementById("adultos");
         var listaEstudantes = document.getElementById("estudantes");
         var btnExcluir = document.forms.cadastro.excluir;
+        var btnInscrever = document.forms.cadastro.inscrever;
         
         btnExcluir.style.display = "none";
 
@@ -88,6 +93,7 @@
                         atualizando = 0;
                         listaDeLi[i].style.color = "black";
                         btnExcluir.style.display = "none";
+                        btnInscrever.value = "Inscrever";
                         break;
                     }
                 }
@@ -110,6 +116,8 @@
                 if(idUl.id=="adultos") document.forms.cadastro.idade.min=18;
                 else document.forms.cadastro.idade.max=17;
 
+                btnInscrever.value = "Atualizar";
+
                 atualizando = 1;
             }
             
@@ -124,6 +132,7 @@
             atualizando = 0;
             document.forms.cadastro.idade.min="0";
             document.forms.cadastro.idade.max="";
+            btnInscrever.value = "Inscrever";
             formulario.reset();
             formulario.nome.focus();
         }
