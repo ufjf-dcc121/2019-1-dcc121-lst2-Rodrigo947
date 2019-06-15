@@ -5,11 +5,37 @@
     <title>Pilha</title>
 </head>
 <body>
-    Entrada:<input type="number">
+    
+    Entrada:<input type="number" id="entrada">
+    
     <button id="empilhar">Empilhar</button>
+    
     <table>
         <tr></tr>
     </table>
+    
     <button id="desempilhar">Desempilhar</button>
+
+    <script>
+        pilha=[]
+        
+        //Referencias
+        var campoEntrada = document.getElementById("entrada")
+        var btnEmpilhar = document.getElementById("empilhar")
+        var btnDesempilhar = document.getElementById("desempilhar")
+        var linhaTabela = document.getElementsByTagName("tr")[0]
+
+        //Eventos dos botoes
+        btnEmpilhar.addEventListener("click",empilhar)
+        btnDesempilhar.addEventListener("click",desempilhar)
+
+        function empilhar(){
+            
+        }
+        
+        function desempilhar(){
+            
+        }
+    </script>
 </body>
 </html>
