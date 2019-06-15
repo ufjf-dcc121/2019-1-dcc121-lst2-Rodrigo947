@@ -64,6 +64,7 @@
 
 <script>
     document.forms.formulario.addEventListener("submit",addAnimal);
+    vetorDeDados = [];
     var mAltura = 0;
     var mPeso = 0;
     var mVelocidade = 0;
@@ -85,6 +86,13 @@
         var tdPeso = document.getElementById("mPeso");
         var tdVelocidade = document.getElementById("mVelocidade");
         var tdIdademMax = document.getElementById("mIdademMax");
+
+        //Refencias da lista-spans
+        salto = document.getElementById("alto");
+        spesado = document.getElementById("pesado");
+        sveloz = document.getElementById("veloz");
+        slongevo = document.getElementById("longevo");
+
 
         //Criando nova linha na tabela
         novoTr = document.createElement("tr");
@@ -109,20 +117,35 @@
         novoTr.appendChild(novoTdIdademMax);
         tbody.appendChild(novoTr);
 
+        //calculo da media e ranking
+        vetorDeDados.push({nome:nome,altura:altura,peso:peso,velocidade:velocidade,idadeMax:idadeMax});
+        var alto=0,pesado=0,veloz=0,longevo=0;
+        for (var i = 0; i < vetorDeDados.length; i++) {
+            mAltura += vetorDeDados[i].altura;
+            mPeso += vetorDeDados[i].peso;
+            mVelocidade += vetorDeDados[i].velocidade;
+            mIdademMax += vetorDeDados[i].idadeMax;
 
-        //calculo da media
-        //vetorDeDados.push({altura:altura,peso:peso,velocidade:velocidade,idadeMax:idadeMax});
-        totalDeAnimais++;
-        mAltura += altura;
-        mPeso += peso;
-        mVelocidade += velocidade;
-        mIdademMax += idadeMax;
+            if(vetorDeDados[i].altura>vetorDeDados[alto].altura) alto=i;
+            if(vetorDeDados[i].peso>vetorDeDados[pesado].peso) pesado=i;
+            if(vetorDeDados[i].velocidade>vetorDeDados[veloz].velocidade) veloz=i;
+            if(vetorDeDados[i].idadeMax>vetorDeDados[longevo].idadeMax) longevo=i;
+        }
 
-        tdAltura.innerText = mAltura/totalDeAnimais;
-        tdPeso.innerText = mPeso/totalDeAnimais;
-        tdVelocidade.innerText = mVelocidade/totalDeAnimais;
-        tdIdademMax.innerText = mIdademMax/totalDeAnimais;
-        //--------calculo da media
+        //Definição da media
+        tdAltura.innerText = mAltura/vetorDeDados.length;
+        tdPeso.innerText = mPeso/vetorDeDados.length;
+        tdVelocidade.innerText = mVelocidade/vetorDeDados.length;
+        tdIdademMax.innerText = mIdademMax/vetorDeDados.length;
+
+        //Definição do Ranking
+        salto.innerText = vetorDeDados[alto].nome;
+        spesado.innerText = vetorDeDados[pesado].nome;
+        sveloz.innerText = vetorDeDados[veloz].nome;
+        slongevo.innerText = vetorDeDados[longevo].nome;
+
+        
+        //--------calculo da media e ranking
     }
 
 </script>
