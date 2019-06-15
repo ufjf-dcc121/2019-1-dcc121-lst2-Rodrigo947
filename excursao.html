@@ -10,14 +10,14 @@
         <table>
             <tr>
                 <td>Nome: </td>
-                <td><input type="text" name="nome"></td>
+                <td><input type="text" name="nome" placeholder="Digite o nome aqui"></td>
             </tr>
             <tr>
                 <td>Idade: </td>
-                <td><input type="number" name="idade"></td>
+                <td><input type="number" name="idade" placeholder="0"></td>
             </tr>
             <tr>
-                <td></td>
+                <td id="excluir"></td>
                 <td style="text-align: right"><input type="submit" value="Enviar"></td>
             </tr>
         </table>    
@@ -27,8 +27,39 @@
         <p>Adultos</p>
         <ul id="adultos"></ul>
         <p>Estudantes</p>
-        <ul id="Estudantes"></ul>
+        <ul id="estudantes"></ul>
     </div>  
+
+    <script>
+        var adultos=[]
+        var estudantes=[]
+
+        //Referencias
+        var formulario = document.forms.cadastro
+        var listAdultos = document.getElementById("adultos")
+        var listEstudantes = document.getElementById("estudantes")
+        var tdExcluir = document.getElementById("excluir")
+
+        formulario.addEventListener("submit",processar)
+
+        function processar(e){
+            e.preventDefault();
+            
+            var nome = formulario.nome.value;
+            var idade = formulario.idade.value;
+
+            if(nome!="" && idade!="" && idade>0){
+                if(idade>17) adultos.push({name:nome},{age:idade})
+                else estudantes.push({name:nome},{age:idade})
+
+                formulario.reset()
+                formulario.nome.focus()
+            }
+            
+
+        }
+
+    </script>
 
 </body>
 </html>
