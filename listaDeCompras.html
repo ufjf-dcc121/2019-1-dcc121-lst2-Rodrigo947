@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Compras</title>
+
+    <style>
+        
+        table,td{
+            margin: 0.5em;
+            border: 0.1em solid;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        
+    </style>
+
 </head>
 <body>
     <h1>Lista de Compras</h1>
+    
     <form name="compras">
         Item: <input type="text" name="nome">
         Quantidade: <input type="number" name="quant">
@@ -14,6 +28,7 @@
     
     <table>
         <thead>
+            <tr><td colspan="2">Tabela de Produtos</td></tr>
             <tr>
                 <td>Item</td>
                 <td>Quantidade</td>
