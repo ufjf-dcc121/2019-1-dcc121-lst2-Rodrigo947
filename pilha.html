@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Pilha</title>
-    
+    <style>
+        td{
+            text-align: center;
+            border-style: solid;
+            border-bottom: 0.1em;
+            border-color: #3f51b5;
+        }
+    </style>
 
 </head>
 <body>
@@ -45,7 +52,7 @@
             for (var i = 0; i < pilha.length-1; i++) {
                 pilhaAux[i]=pilha[i]
             }
-            
+
             pilha=pilhaAux
             atualizarPilha()
         }
