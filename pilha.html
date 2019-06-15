@@ -3,38 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <title>Pilha</title>
+    
+
 </head>
 <body>
-    
-    Entrada:<input type="number" id="entrada">
+    <h1>Pilha</h1>
+    Entrada: <input type="number" id="entrada">
     
     <button id="empilhar">Empilhar</button>
-    
+    <p>Representação da Pilha</p>
     <table>
-        <tr></tr>
+      
     </table>
     
     <button id="desempilhar">Desempilhar</button>
 
     <script>
-        pilha=[]
+        var pilha=[]
         
         //Referencias
         var campoEntrada = document.getElementById("entrada")
         var btnEmpilhar = document.getElementById("empilhar")
         var btnDesempilhar = document.getElementById("desempilhar")
-        var linhaTabela = document.getElementsByTagName("tr")[0]
+        var tabela = document.getElementsByTagName("table")[0]
 
         //Eventos dos botoes
         btnEmpilhar.addEventListener("click",empilhar)
         btnDesempilhar.addEventListener("click",desempilhar)
 
         function empilhar(){
-            
+            if(campoEntrada!=""){
+                pilha.push(campoEntrada.value)
+                atualizarPilha()
+            } 
         }
+            
         
         function desempilhar(){
+            var pilhaAux=[]
             
+            for (var i = 0; i < pilha.length-1; i++) {
+                pilhaAux[i]=pilha[i]
+            }
+            
+            pilha=pilhaAux
+            atualizarPilha()
+        }
+
+        function atualizarPilha(){
+            tabela.innerHTML=""
+            for (var i = pilha.length-1; i >= 0; i--) {
+                var novoTr = document.createElement("tr")
+                var novoTd = document.createElement("td")
+                
+                novoTd.innerText = pilha[i]
+
+                novoTr.appendChild(novoTd)
+                tabela.appendChild(novoTr) 
+  
+            } 
         }
     </script>
 </body>
