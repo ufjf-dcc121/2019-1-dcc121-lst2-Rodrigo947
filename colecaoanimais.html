@@ -64,7 +64,12 @@
 
 <script>
     document.forms.formulario.addEventListener("submit",addAnimal);
-
+    var mAltura = 0;
+    var mPeso = 0;
+    var mVelocidade = 0;
+    var mIdademMax = 0;
+    var totalDeAnimais = 0;
+   
     function addAnimal(e){
         e.preventDefault();
          //Referências do formulario
@@ -76,10 +81,10 @@
 
         //Referencias da tabela
         var tbody = document.getElementsByTagName("tbody")[1];
-        var mAltura = document.getElementById("mAltura");
-        var mPeso = document.getElementById("mPeso");
-        var mVelocidade = document.getElementById("mVelocidade");
-        var mIdademMax = document.getElementById("mIdademMax");
+        var tdAltura = document.getElementById("mAltura");
+        var tdPeso = document.getElementById("mPeso");
+        var tdVelocidade = document.getElementById("mVelocidade");
+        var tdIdademMax = document.getElementById("mIdademMax");
 
         //Criando nova linha na tabela
         novoTr = document.createElement("tr");
@@ -105,6 +110,19 @@
         tbody.appendChild(novoTr);
 
 
+        //calculo da media
+        //vetorDeDados.push({altura:altura,peso:peso,velocidade:velocidade,idadeMax:idadeMax});
+        totalDeAnimais++;
+        mAltura += altura;
+        mPeso += peso;
+        mVelocidade += velocidade;
+        mIdademMax += idadeMax;
+
+        tdAltura.innerText = mAltura/totalDeAnimais;
+        tdPeso.innerText = mPeso/totalDeAnimais;
+        tdVelocidade.innerText = mVelocidade/totalDeAnimais;
+        tdIdademMax.innerText = mIdademMax/totalDeAnimais;
+        //--------calculo da media
     }
 
 </script>
