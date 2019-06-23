@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Pilha</title>
@@ -7,7 +7,7 @@
 <body>
     <h1>Pilha</h1>
     <form name="dados">
-        Entrada: <input type="number" id="entrada">
+        <label>Entrada: <input type="number" id="entrada" required></label>
         <input type="submit" id="empilhar" value="Empilhar">
     </form>
     
@@ -26,15 +26,13 @@
         var lista = document.getElementsByTagName("ol")[0]
 
         //Eventos dos botoes
-        btnEmpilhar.addEventListener("click",empilhar)
+        formulario.addEventListener("submit",empilhar)
         btnDesempilhar.addEventListener("click",desempilhar)
 
         function empilhar(e){
-            e.preventDefault();
-            if(campoEntrada.value!=""){
-                pilha.push(campoEntrada.value)
-                atualizarPilha()
-            } 
+            e.preventDefault()
+            pilha.push(campoEntrada.value)
+            atualizarPilha()
         }
             
         
@@ -50,8 +48,8 @@
                 novoLi.innerText = pilha[i]
                 lista.appendChild(novoLi) 
             }
-            formulario.reset();
-            formulario.entrada.focus();
+            formulario.reset()
+            formulario.entrada.focus()
 
         }
     </script>
