@@ -26,22 +26,14 @@
         <input type="submit" value="Adicionar">
     </form>
     
-    <table>
-        <thead>
-            <tr><td colspan="2">Tabela de Produtos</td></tr>
-            <tr>
-                <td>Item</td>
-                <td>Quantidade</td>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    <p>Produtos e suas quantidades</p> 
+    <ul></ul> 
 
     <button id="limpar">Limpar</button>
 
     <script>
         document.forms.compras.addEventListener("submit",processaEnvio)
-        var tabela = document.getElementsByTagName("tbody")[0]
+        var lista = document.getElementsByTagName("ul")[0]
         var limpar = document.getElementById("limpar");
 
         function processaEnvio(e){
@@ -52,18 +44,13 @@
             if(nome!="" && quantidade!=""){
                 
                 //Novos elementos
-                var novoTr = document.createElement("tr")
-                var novoTdNome = document.createElement("td")
-                var novoTdQuantidade = document.createElement("td")
+                var novoLi = document.createElement("li")
                 
-                //Valores de cada td
-                novoTdNome.textContent = nome
-                novoTdQuantidade.textContent = quantidade
+                //Valores de cada li
+                novoLi.textContent = nome+" - "+quantidade
                 
                 //Adicionando novas tags na tabela
-                novoTr.appendChild(novoTdNome)
-                novoTr.appendChild(novoTdQuantidade)
-                tabela.appendChild(novoTr)
+                lista.appendChild(novoLi)
 
                 document.forms.compras.reset();
                 document.forms.compras.nome.focus();
@@ -71,7 +58,7 @@
         }
 
         limpar.addEventListener("click",function(){
-            tabela.innerHTML="";
+            lista.innerHTML="";
         })
     
     </script>
