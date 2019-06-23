@@ -3,61 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Pilha</title>
-    <style>
-        table{
-            margin: 0.5em;
-            text-align: center;
-            border-collapse: collapse;
-
-        }
-        tbody>tr>td{
-            border: 0.5px;
-            border-style: dashed;
-            border-color: #3f51b5;
-        }
-        #desempilhar{
-            width: 100%;
-        }
-
-    </style>
-
 </head>
 <body>
     <h1>Pilha</h1>
-    Entrada: <input type="number" id="entrada">
+    <form name="dados">
+        Entrada: <input type="number" id="entrada">
+        <input type="submit" id="empilhar" value="Empilhar">
+    </form>
     
-    <button id="empilhar">Empilhar</button>
+    <p>Representação da Pilha</p>
+    <ol></ol>
+    <button id="desempilhar">Desempilhar</button>
     
-    <table>
-        <thead>
-            <tr>
-                <td>Representação da Pilha</td>
-            </tr>
-        </thead>
-        <tbody></tbody>
-        <tfoot>
-            <tr>
-                <td><button id="desempilhar">Desempilhar</button></td>
-            </tr>
-        </tfoot>
-    </table>
-    
-    
-
     <script>
         var pilha=[]
         
         //Referencias
+        var formulario = document.forms.dados;
         var campoEntrada = document.getElementById("entrada")
         var btnEmpilhar = document.getElementById("empilhar")
         var btnDesempilhar = document.getElementById("desempilhar")
-        var tabela = document.getElementsByTagName("tbody")[0]
+        var lista = document.getElementsByTagName("ol")[0]
 
         //Eventos dos botoes
         btnEmpilhar.addEventListener("click",empilhar)
         btnDesempilhar.addEventListener("click",desempilhar)
 
-        function empilhar(){
+        function empilhar(e){
+            e.preventDefault();
             if(campoEntrada.value!=""){
                 pilha.push(campoEntrada.value)
                 atualizarPilha()
@@ -71,17 +44,15 @@
         }
 
         function atualizarPilha(){
-            tabela.innerHTML=""
+            lista.innerHTML=""
             for (var i = pilha.length-1; i >= 0; i--) {
-                var novoTr = document.createElement("tr")
-                var novoTd = document.createElement("td")
-                
-                novoTd.innerText = pilha[i]
+                var novoLi = document.createElement("li")
+                novoLi.innerText = pilha[i]
+                lista.appendChild(novoLi) 
+            }
+            formulario.reset();
+            formulario.entrada.focus();
 
-                novoTr.appendChild(novoTd)
-                tabela.appendChild(novoTr) 
-  
-            } 
         }
     </script>
 </body>
