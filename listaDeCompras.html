@@ -1,29 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Lista de Compras</title>
-
     <style>
         
-        table,td{
-            margin: 0.5em;
-            border: 0.1em solid;
-            border-collapse: collapse;
-            text-align: center;
+        span{
+            width: 5em;
+            float: left; 
+        }
+        div{
+            padding: 0.1em;
+        }
+        #botao{
+            width: 253px;
+            text-align: right;
         }
         
         
     </style>
-
 </head>
 <body>
     <h1>Lista de Compras</h1>
-    
+
     <form name="compras">
-        Item: <input type="text" name="nome">
-        Quantidade: <input type="number" name="quant">
-        <input type="submit" value="Adicionar">
+        <div>
+            <label>
+                <span>Item:</span>
+                <input type="text" name="nome" required>
+            </label>
+        </div> 
+        <div>
+            <label>
+                <span>Quantidade:</span> 
+                <input type="number" name="quant" required>
+            </label>
+        </div>
+        <div id="botao">
+            <input  type="submit" value="Adicionar">
+        </div>
     </form>
     
     <p>Produtos e suas quantidades</p> 
@@ -41,20 +56,19 @@
             
             var nome = document.forms.compras.nome.value
             var quantidade = Number(document.forms.compras.quant.value)
-            if(nome!="" && quantidade!=""){
-                
-                //Novos elementos
-                var novoLi = document.createElement("li")
-                
-                //Valores de cada li
-                novoLi.textContent = nome+" - "+quantidade
-                
-                //Adicionando novas tags na tabela
-                lista.appendChild(novoLi)
+           
+            //Novos elementos
+            var novoLi = document.createElement("li")
+            
+            //Valores de cada li
+            novoLi.textContent = nome+" - "+quantidade
+            
+            //Adicionando novas tags na tabela
+            lista.appendChild(novoLi)
 
-                document.forms.compras.reset();
-                document.forms.compras.nome.focus();
-            }
+            document.forms.compras.reset();
+            document.forms.compras.nome.focus();
+            
         }
 
         limpar.addEventListener("click",function(){
