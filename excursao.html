@@ -1,51 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Excursão</title>
-    <style>
-        input.dados{
-            width: 100%;
+    <style>  
+        
+        /*Formulario de cadastro*/
+        form{
+            padding-left: 0.5em;
+            margin-left: 0.5em;
+            margin-bottom: 0.5em;
+            border: 0.1em dashed;
+            width: 14.7em;
         }
-        .botoes{
-            text-align:right;
-        }    
-        table{
-            padding: 0.5em;
-            border: 0.1em solid;
-            margin: 0.5em;
+        
+        form>div{
+            padding: 0.1em;
         }
-        div{
+
+        .dados{
+            width: 12.6em;
+        }
+
+        .rotulo{
+            width: 3.7em;
+            float: left; 
+        }
+        
+        #botoes{
+            width: 14.4em;
+            text-align: right;
+        }
+
+
+        /*Lista de participantes*/
+        body>div{
             margin-left: 0.5em;
             width: 243px;
-            border: 0.1em dashed;
+            border: 0.1em dotted;
         }
         p{
             padding-left: 0.5em;
             font-weight: bold;
-        }
+        }        
         
     </style>
 </head>
 <body>
     <h1>Participantes da Excursão</h1>
     <form name="cadastro">
-        <table>
-            <tr>
-                <td>Nome: </td>
-                <td><input class="dados" type="text" name="nome" placeholder="Digite o nome aqui" required></td>
-            </tr>
-            <tr>
-                <td>Idade: </td>
-                <td><input class="dados" type="number" name="idade" placeholder="0" min="0" required></td>
-            </tr>
-            <tr>
-                <td class="botoes"  colspan="2">
-                    <input type="button" value="Excluir" name="excluir" >
-                    <input type="submit" value="Inscrever" name="inscrever" >
-                </td>
-            </tr>
-        </table>    
+
+        <div>
+            <label>
+                <span class="rotulo">Nome:</span>
+                <input class="dados" type="text" name="nome" placeholder="Digite o nome aqui" required>
+            </label>
+        </div>
+
+        <div>
+            <label>
+                <span class="rotulo">Idade:</span>
+                <input class="dados" type="number" name="idade" placeholder="Digite a idade aqui" min="0" required>
+            </label>
+        </div>
+
+        <div id="botoes">
+            <input type="button" value="Excluir" name="excluir" >
+            <input type="submit" value="Inscrever" name="inscrever" >
+        </div>
+         
     </form>
     
     <div>

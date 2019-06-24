@@ -1,24 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Coleção de animas</title>
     
     <style>
-        form>table{
-            padding: 0.5em;
-            border: 0.1em solid;
-            margin: 0.5em;
-        }
 
-        .formulario input{
-            width: 100%;
-
-        }
-
-        .botao{
-            width: 100%;
-        }
         .animais{
             margin-left: 0.5em;
             width: 299px;
@@ -40,41 +27,34 @@
 <body>
     <h1>Animais - Características e Curiosidades</h1>
     <form name="formulario">
-        <table>
-            <tr>
-                <td>Animal:</td> 
-                <td><input type="text" name="nome"></td>
-            </tr>
-            <tr>
-                <td>Altura: </td>
-                <td><input type="number" step="any" min="0" name="altura"></td>
-            </tr>
-            <tr>
-                <td>Peso: </td>
-                <td><input type="number" step="any" min="0" name="peso"></td>
-            </tr>
-            <tr>
-                <td>Velocidade: </td>
-                <td><input type="number" step="any" min="0" name="velocidade"></td>
-            </tr>
-            <tr>
-                <td>Idade Máxima: </td>
-                <td><input type="number" step="any" min="0" name="idadeMax"></td>
-            </tr>
-            <tr>
-                <td colspan="2"><input class="botao" type="submit" value="Inserir"></td>
-            </tr>
-        </table>
+       
+        Animal:
+        <input type="text" name="nome" required>
+
+        Altura: 
+        <input type="number" step="any" min="0" name="altura" required>
+
+        Peso: 
+        <input type="number" step="any" min="0" name="peso" required>
+        
+        Velocidade: 
+        <input type="number" step="any" min="0" name="velocidade" required>
+            
+        
+        Idade Máxima:
+        <input type="number" step="any" min="0" name="idadeMax" required>
+        <input class="botao" type="submit" value="Inserir" required>
+            
     </form>
     
     <table class="animais"> 
         <thead>
             <tr>
-                <td>Animal</td>
-                <td>Altura</td>
-                <td>Peso</td>
-                <td>Velocidade</td>
-                <td>Idade Máxima</td>
+                <th>Animal</th>
+                <th>Altura</th>
+                <th>Peso</th>
+                <th>Velocidade</th>
+                <th>Idade Máxima</th>
             </tr>
         </thead>
         <tbody></tbody>
