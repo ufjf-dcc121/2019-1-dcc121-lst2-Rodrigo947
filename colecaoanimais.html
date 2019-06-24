@@ -11,7 +11,7 @@
             width: 299px;
             border-collapse: collapse;
         }
-        .animais td{
+        .animais td,th{
             border: 0.1em dashed;
             text-align: center;
             padding: 0.2em;
@@ -20,6 +20,24 @@
         thead,tfoot{
             font-weight: bold;
         }
+
+        form{
+            margin-left: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        label>span{
+            width: 7em;
+            float: left; 
+        }
+        div{
+            padding: 0.1em;
+        }
+        #botao{
+            width: 285px;
+            text-align: right;
+        }
+        
         
     </style>
 
@@ -27,24 +45,41 @@
 <body>
     <h1>Animais - Características e Curiosidades</h1>
     <form name="formulario">
-       
-        Animal:
-        <input type="text" name="nome" required>
+        <div>
+            <label>
+                <span>Animal:</span>
+                <input type="text" name="nome" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>Altura:</span>
+                <input type="number" step="any" min="0" name="altura" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>Peso:</span>
+                <input type="number" step="any" min="0" name="peso" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>Velocidade:</span>
+                <input type="number" step="any" min="0" name="velocidade" required>
+            </label>
+        </div>
+        <div>
+            <label>
+                <span> Idade Máxima:</span>
+                <input type="number" step="any" min="0" name="idadeMax" required>
+            </label>
+        </div>
+        <div id="botao">
+            <input class="botao" type="submit" value="Inserir" required>
+        </div>
 
-        Altura: 
-        <input type="number" step="any" min="0" name="altura" required>
-
-        Peso: 
-        <input type="number" step="any" min="0" name="peso" required>
         
-        Velocidade: 
-        <input type="number" step="any" min="0" name="velocidade" required>
-            
-        
-        Idade Máxima:
-        <input type="number" step="any" min="0" name="idadeMax" required>
-        <input class="botao" type="submit" value="Inserir" required>
-            
     </form>
     
     <table class="animais"> 
@@ -92,14 +127,15 @@
     function addAnimal(e){
         e.preventDefault();
          //Referências do formulario
-        var nome = document.forms.formulario.nome.value;
-        var altura = document.forms.formulario.altura.value;
-        var peso = document.forms.formulario.peso.value;
-        var velocidade = document.forms.formulario.velocidade.value;
-        var idadeMax = document.forms.formulario.idadeMax.value;
+        var formularioDeDados = document.forms.formulario;
+        var nome = formularioDeDados.nome.value;
+        var altura = formularioDeDados.altura.value;
+        var peso = formularioDeDados.peso.value;
+        var velocidade = formularioDeDados.velocidade.value;
+        var idadeMax = formularioDeDados.idadeMax.value;
 
         //Referencias da tabela
-        var tbody = document.getElementsByTagName("tbody")[1];
+        var tbody = document.getElementsByTagName("tbody")[0];
         var tdAltura = document.getElementById("mAltura");
         var tdPeso = document.getElementById("mPeso");
         var tdVelocidade = document.getElementById("mVelocidade");
@@ -174,6 +210,9 @@
         }
         sAcima.innerText = nAnimais;
         //--------Animais com peso acima da media
+
+        formularioDeDados.reset();
+        formularioDeDados.nome.focus();
 
     }
 
