@@ -1,4 +1,4 @@
-<p>Nome: Rodrigo Torres Rego</p>
+<p>Nome: Rodrigo Torres</p>
 <p>Matrícula: 201876029</p>
 <p>Curso: Sistemas de Informação</p>
 
