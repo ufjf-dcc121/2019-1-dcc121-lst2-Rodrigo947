@@ -117,7 +117,7 @@
 
 <script>
     document.forms.formulario.addEventListener("submit",addAnimal);
-    vetorDeDados = [];
+    var vetorDeDados = [];
     var mAltura = 0;
     var mPeso = 0;
     var mVelocidade = 0;
@@ -174,6 +174,7 @@
         //calculo da media e ranking
         vetorDeDados.push({nome:nome,altura:altura,peso:peso,velocidade:velocidade,idadeMax:idadeMax});
         var alto=0,pesado=0,veloz=0,longevo=0;
+        mAltura=mPeso=mVelocidade=mIdademMax=0;
         for (var i = 0; i < vetorDeDados.length; i++) {
             mAltura += Number(vetorDeDados[i].altura);
             mPeso += Number(vetorDeDados[i].peso);
